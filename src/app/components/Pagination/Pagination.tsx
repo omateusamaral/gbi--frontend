@@ -3,7 +3,6 @@ import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutl
 
 export default function Pagination({ isLoading, quantity }: any) {
   const pages = Array.from({ length: quantity }, (_, index) => index + 1);
-  console.log(pages);
   return (
     <div className='flex justify-center my-6'>
       <nav className='inline-flex -space-x-px'>
