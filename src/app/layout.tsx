@@ -27,10 +27,6 @@ export default function RootLayout({
                   label: 'Home',
                   path: '/',
                 },
-                {
-                  label: 'Home2',
-                  path: '/2',
-                },
               ]}
             />
             {children}

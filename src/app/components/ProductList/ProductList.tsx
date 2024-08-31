@@ -7,8 +7,8 @@ export default function ProductList({ isLoading, products }: ProductListProps) {
   return (
     <div
       className={`${
-        isLoading
-          ? 'flex justify-center h-screen w-[50vw]  items-center'
+        isLoading || !products.length
+          ? 'flex justify-center h-screen w-[60vw]  items-center'
           : 'grid md:grid-cols-3 sm:grid-cols-2 gap-36 max-h-[calc(3*min(200px, 100vh))] w-full overflow-auto'
       }`}
     >
