@@ -1,26 +1,30 @@
 import Image from 'next/image';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import { ProductCardProps } from './productCard.interface';
 
-export default function ProductCard() {
+export default function ProductCard({ title, image, price }: ProductCardProps) {
   return (
     <div className='relative max-w-xs max-h-[434px] overflow-hidden group '>
       <Image
-        className=' object-cover bg-gray-500 hover:opacity-20 '
-        src='https://via.placeholder.com/400x434'
+        className=' object-scale-down bg-white hover:opacity-20 '
+        src={image}
         alt='Imagem do Produto'
-        width={400}
-        objectFit='cover'
-        height={434}
+        width={300}
+        height={300}
+        style={{
+          maxWidth: 300,
+          height: 150,
+        }}
       />
       <div className='mt-6 px-0'>
-        <div className='font-medium text-[#0E1422]'>Nome do Produto</div>
+        <div className='font-medium text-[#0E1422]'>{title}</div>
       </div>
       <div className='flex flex-row px-0 pt-4 pb-2'>
         <p className='font-medium text-xs text-[#0E1422] border w-20 p-1 rounded-full text-center mr-4'>
           In Stock
         </p>
-        <span className='text-[#474B57]'>R$ 199,99</span>
+        <span className='text-[#474B57]'>R$ {price}</span>
       </div>
 
       <div className='absolute inset-0 flex justify-end items-start p-4 opacity-0 group-hover:opacity-100 transition-opacity'>

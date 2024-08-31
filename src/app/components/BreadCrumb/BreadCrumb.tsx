@@ -1,4 +1,4 @@
-import { BreadCrumbItem, BreadCrumbProps } from './BreadCrumb.interface';
+import { BreadCrumbItem, BreadCrumbProps } from './breadCrumb.interface';
 
 export default function BreadCrumb({ breadCrumbs }: BreadCrumbProps) {
   return (
