@@ -13,14 +13,14 @@ export default function Pagination() {
 
         <a
           href='#'
-          className='relative inline-flex items-center px-4 py-2 text-sm font-medium text-blue-600 bg-white border border-gray-300 hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
+          className='relative inline-flex items-center px-4 py-2 text-sm font-medium bg-white border border-gray-300 hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
         >
           1
         </a>
 
         <a
           href='#'
-          className='relative inline-flex items-center px-4 py-2 text-sm font-medium text-blue-600 bg-white border border-gray-300 hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
+          className='relative inline-flex items-center px-4 py-2 text-sm font-medium bg-white border border-gray-300 hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
         >
           4
         </a>
@@ -30,14 +30,14 @@ export default function Pagination() {
 
         <a
           href='#'
-          className='relative inline-flex items-center px-4 py-2 text-sm font-medium text-blue-600 bg-white border border-gray-300 hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
+          className='relative inline-flex items-center px-4 py-2 text-sm font-medium bg-white border border-gray-300 hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
         >
           9
         </a>
 
         <a
           href='#'
-          className='relative inline-flex items-center px-4 py-2 text-sm font-medium text-blue-600 bg-white border border-gray-300 hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
+          className='relative inline-flex items-center px-4 py-2 text-sm font-medium bg-white border border-gray-300 hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
         >
           10
         </a>
