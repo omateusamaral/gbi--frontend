@@ -1,5 +1,7 @@
 import { LinearProgress } from '@mui/material';
 import { Category, CategoryListProps } from './categoryList.interface';
+import { ChangeEvent, useContext } from 'react';
+import { ProductContext } from '@gbi/app/contexts/product.context';
 
 export default function CategoryList({
   categories,
@@ -15,6 +17,20 @@ export default function CategoryList({
 }
 
 function RenderContent({ categories, isLoading }: CategoryListProps) {
+  const context = useContext(ProductContext);
+
+  function handleCategories(checked: boolean, value: string) {
+    if (!context) {
+      return;
+    }
+    let newCategories: string[] = [];
+
+    if (checked) {
+      newCategories = [...new Set([...context.categories, value])];
+    }
+    context.setCategories(newCategories);
+  }
+
   if (isLoading) {
     return <LinearProgress />;
   }
@@ -33,6 +49,9 @@ function RenderContent({ categories, isLoading }: CategoryListProps) {
             id={`checkbox-${value.value}`}
             type='checkbox'
             className='form-checkbox text-gray-700 py-3'
+            onChange={(event) =>
+              handleCategories(event.target.checked, value.value)
+            }
           />
           <label
             htmlFor={`checkbox-${value.value}`}

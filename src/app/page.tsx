@@ -14,7 +14,9 @@ import BreadCrumb from './components/BreadCrumb/BreadCrumb';
 export default function Home() {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [debouncedValue, setSearchProduct] = useDebounceValue('', 500);
+  const [categories, setCategories] = useState<string[]>([]);
 
+  console.log(currentPage);
   const categoriesQuery = useQuery(['categories'], listCategories, {
     staleTime: 1000 * 60 * 60 * 24,
     refetchOnMount: false,
@@ -42,6 +44,8 @@ export default function Home() {
         searchProduct: debouncedValue,
         setCurrentPage,
         setSearchProduct,
+        categories,
+        setCategories,
       }}
     >
       <Header />

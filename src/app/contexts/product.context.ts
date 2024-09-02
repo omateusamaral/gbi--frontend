@@ -9,8 +9,10 @@ interface Pagination {
 interface ProductContextType {
   pagination: Pagination;
   setCurrentPage: (page: number) => void;
-  setSearchProduct: (productTitle: string) => void;
   searchProduct: string;
+  setSearchProduct: (productTitle: string) => void;
+  categories: string[];
+  setCategories: (categories: string[]) => void;
 }
 
 export const ProductContext = createContext<ProductContextType | undefined>(

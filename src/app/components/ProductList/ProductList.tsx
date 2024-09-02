@@ -18,12 +18,19 @@ export default function ProductList({ isLoading, products }: ProductListProps) {
 
     let filteredProducts = products;
 
+    console.log(`aois`, context?.categories);
+    if (context?.categories.length) {
+      filteredProducts = filteredProducts.filter((product) =>
+        context.categories.includes(product.category)
+      );
+    }
     if (context?.searchProduct) {
       filteredProducts = filteredProducts.filter((product) =>
         product.title
           .toLowerCase()
           .includes(context.searchProduct.toLowerCase())
       );
+      w;
     }
 
     if (context?.pagination.currentPage) {
@@ -33,10 +40,8 @@ export default function ProductList({ isLoading, products }: ProductListProps) {
       filteredProducts = filteredProducts.slice(startIndex, endIndex);
     }
 
-    console.log(filteredProducts);
-
     return filteredProducts;
-  }, [context?.pagination.currentPage, context?.searchProduct, products]);
+  }, [context, products]);
   return (
     <div
       className={`${
