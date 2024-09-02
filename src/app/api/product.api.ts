@@ -1,5 +1,5 @@
 import { ProductCardProps } from '../components/ProductCard/productCard.interface';
-import { ITEMS_PER_PAGE } from '../contexts/product.context';
+import { ITEMS_PER_PAGE } from '../contexts/product/product.context';
 import client from './client';
 
 export async function countAllProducts(): Promise<number> {

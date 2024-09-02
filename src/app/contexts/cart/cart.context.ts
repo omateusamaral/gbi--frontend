@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { ProductCardProps } from '../components/ProductCard/productCard.interface';
+import { ProductCardProps } from '../../components/ProductCard/productCard.interface';
 export const ITEMS_PER_PAGE = 9;
 
 export interface ProductsCart extends ProductCardProps {

@@ -1,7 +1,7 @@
 import { LinearProgress } from '@mui/material';
 import { Category, CategoryListProps } from './categoryList.interface';
 import { ChangeEvent, useContext } from 'react';
-import { ProductContext } from '@gbi/app/contexts/product.context';
+import { ProductContext } from '@gbi/app/contexts/product/product.context';
 
 export default function CategoryList({
   categories,

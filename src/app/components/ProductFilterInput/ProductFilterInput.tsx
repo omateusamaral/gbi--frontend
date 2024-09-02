@@ -1,4 +1,4 @@
-import { ProductContext } from '@gbi/app/contexts/product.context';
+import { ProductContext } from '@gbi/app/contexts/product/product.context';
 import SearchIcon from '@mui/icons-material/Search';
 import { ChangeEvent, useContext } from 'react';
 

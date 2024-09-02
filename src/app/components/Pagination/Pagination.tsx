@@ -1,4 +1,4 @@
-import { ProductContext } from '@gbi/app/contexts/product.context';
+import { ProductContext } from '@gbi/app/contexts/product/product.context';
 import ArrowBackIosOutlinedIcon from '@mui/icons-material/ArrowBackIosOutlined';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 import { useContext } from 'react';

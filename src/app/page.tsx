@@ -6,16 +6,16 @@ import { listCategories } from './api/category.api';
 import PleaseTryAgainLater from './components/PleaseTryAgainLater/PleaseTryAgainLater';
 import { countAllProducts, listProducts } from './api/product.api';
 import Pagination from './components/Pagination/Pagination';
-import { ITEMS_PER_PAGE, ProductContext } from './contexts/product.context';
+import {
+  ITEMS_PER_PAGE,
+  ProductContext,
+} from './contexts/product/product.context';
 import { useState } from 'react';
 import { useDebounceValue } from 'usehooks-ts';
 import Header from './components/Header/Header';
 import BreadCrumb from './components/BreadCrumb/BreadCrumb';
+import ProductContextProvider from './contexts/product/ProductContextProvider';
 export default function Home() {
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const [debouncedValue, setSearchProduct] = useDebounceValue('', 500);
-  const [categories, setCategories] = useState<string[]>([]);
-
   const categoriesQuery = useQuery(['categories'], listCategories, {
     staleTime: 1000 * 60 * 60 * 24,
     refetchOnMount: false,
@@ -32,21 +32,7 @@ export default function Home() {
   });
 
   return (
-    <ProductContext.Provider
-      value={{
-        pagination: {
-          totalPages: Math.ceil(
-            (countProductsQuery.data ?? 1) / ITEMS_PER_PAGE
-          ),
-          currentPage: currentPage,
-        },
-        searchProduct: debouncedValue,
-        setCurrentPage,
-        setSearchProduct,
-        categories,
-        setCategories,
-      }}
-    >
+    <ProductContextProvider countProducts={countProductsQuery.data}>
       <Header />
       <BreadCrumb
         breadCrumbs={[
@@ -94,6 +80,6 @@ export default function Home() {
           customTitle='Error loading pagination'
         />
       </section>
-    </ProductContext.Provider>
+    </ProductContextProvider>
   );
 }

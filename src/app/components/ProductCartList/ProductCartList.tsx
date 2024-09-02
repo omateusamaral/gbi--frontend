@@ -3,7 +3,7 @@ import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import RemoveRoundedIcon from '@mui/icons-material/RemoveRounded';
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import { useContext } from 'react';
-import { CartContext } from '@gbi/app/contexts/cart.context';
+import { CartContext } from '@gbi/app/contexts/cart/cart.context';
 export default function ProductCardList() {
   const context = useContext(CartContext);
   console.log(`asa`, context?.products);

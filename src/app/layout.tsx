@@ -2,11 +2,9 @@
 import { Inter } from 'next/font/google';
 import './globals.css';
 import NotificationBar from './components/NotificationBar/NotificationBar';
-import Header from './components/Header/Header';
-import BreadCrumb from './components/BreadCrumb/BreadCrumb';
 import { QueryClientProvider } from 'react-query';
 import { queryClient } from './react-query.client';
-import { CartContextProvider } from './contexts/CartContextProdvider';
+import { CartContextProvider } from './contexts/cart/CartContextProdvider';
 
 const inter = Inter({ subsets: ['latin'] });
 

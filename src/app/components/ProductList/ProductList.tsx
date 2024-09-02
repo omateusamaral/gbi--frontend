@@ -5,7 +5,7 @@ import { ProductListProps } from './productList.interface';
 import {
   ITEMS_PER_PAGE,
   ProductContext,
-} from '@gbi/app/contexts/product.context';
+} from '@gbi/app/contexts/product/product.context';
 import { useContext, useMemo } from 'react';
 
 export default function ProductList({ isLoading, products }: ProductListProps) {

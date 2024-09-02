@@ -3,7 +3,7 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { ProductCardProps } from './productCard.interface';
 import { useContext } from 'react';
-import { CartContext } from '@gbi/app/contexts/cart.context';
+import { CartContext } from '@gbi/app/contexts/cart/cart.context';
 
 export default function ProductCard({
   title,
