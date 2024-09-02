@@ -6,6 +6,7 @@ import Header from './components/Header/Header';
 import BreadCrumb from './components/BreadCrumb/BreadCrumb';
 import { QueryClientProvider } from 'react-query';
 import { queryClient } from './react-query.client';
+import { CartContextProvider } from './contexts/CartContextProdvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,10 +19,12 @@ export default function RootLayout({
     <html lang='pt-BR'>
       <body className={inter.className}>
         <QueryClientProvider client={queryClient}>
-          <main className='flex min-h-screen flex-col items-center p-0'>
-            <NotificationBar />
-            {children}
-          </main>
+          <CartContextProvider>
+            <main className='flex min-h-screen flex-col items-center p-0'>
+              <NotificationBar />
+              {children}
+            </main>
+          </CartContextProvider>
         </QueryClientProvider>
       </body>
     </html>

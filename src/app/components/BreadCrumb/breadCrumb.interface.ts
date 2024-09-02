@@ -1,5 +1,6 @@
 export interface BreadCrumbProps {
   breadCrumbs: BreadCrumbItem[];
+  title?: string;
 }
 
 export interface BreadCrumbItem {

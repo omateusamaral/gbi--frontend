@@ -16,7 +16,6 @@ export default function Home() {
   const [debouncedValue, setSearchProduct] = useDebounceValue('', 500);
   const [categories, setCategories] = useState<string[]>([]);
 
-  console.log(currentPage);
   const categoriesQuery = useQuery(['categories'], listCategories, {
     staleTime: 1000 * 60 * 60 * 24,
     refetchOnMount: false,

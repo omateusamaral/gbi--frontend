@@ -1,26 +1,39 @@
+import Link from 'next/link';
 import { BreadCrumbItem, BreadCrumbProps } from './breadCrumb.interface';
 
-export default function BreadCrumb({ breadCrumbs }: BreadCrumbProps) {
+export default function BreadCrumb({ breadCrumbs, title }: BreadCrumbProps) {
   return (
-    <div className='bg-[#F6F6F6] w-full h-16 flex flex-row  items-center'>
-      <span className='text-[#5C5F6A] font-medium text-md sm:pl-0 md:pl-32'>
-        Ecommerce
-      </span>
-      {breadCrumbs.map((value) => (
-        <span key={value.path} className='flex flex-row items-center px-2'>
-          <Separator />
-          {RenderItem(value)}
-        </span>
-      ))}
+    <div className='bg-[#F6F6F6] w-full h-16 py-16 flex items-center'>
+      <div
+        className={
+          'flex flex-col justify-center ' + title ? 'sm:pl-0 md:pl-32' : ''
+        }
+      >
+        {title && (
+          <h2 className='text-[#0E1422] font-bold text-2xl mb-2'>{title}</h2>
+        )}
+
+        <div className='flex flex-row  items-center'>
+          <Link href='/' className='text-[#5C5F6A] font-medium text-md '>
+            Ecommerce
+          </Link>
+          {breadCrumbs.map((value) => (
+            <span key={value.path} className='flex flex-row items-center px-2'>
+              <Separator />
+              {RenderItem(value)}
+            </span>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
 
 function RenderItem({ label, path }: BreadCrumbItem) {
   return (
-    <a href={path} className='hover:underline'>
+    <Link href={path} className='hover:underline'>
       {label}
-    </a>
+    </Link>
   );
 }
 

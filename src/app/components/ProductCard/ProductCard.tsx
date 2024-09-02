@@ -2,8 +2,46 @@ import Image from 'next/image';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { ProductCardProps } from './productCard.interface';
+import { useContext } from 'react';
+import { CartContext } from '@gbi/app/contexts/cart.context';
 
-export default function ProductCard({ title, image, price }: ProductCardProps) {
+export default function ProductCard({
+  title,
+  image,
+  price,
+  category,
+  description,
+  id,
+}: ProductCardProps) {
+  const context = useContext(CartContext);
+
+  function handleAddToCart() {
+    if (!context) {
+      return;
+    }
+
+    const productToUpdateIndex = context.products.findIndex(
+      (product) => product.id === id
+    );
+    if (productToUpdateIndex !== -1) {
+      context.products[productToUpdateIndex].quantity =
+        context.products[productToUpdateIndex].quantity + 1;
+      return context.setProducts(context.products);
+    }
+
+    return context.setProducts([
+      ...context.products,
+      {
+        category,
+        description,
+        id,
+        image,
+        price,
+        quantity: 1,
+        title,
+      },
+    ]);
+  }
   return (
     <div className='relative max-w-xs max-h-[434px] overflow-hidden group '>
       <Image
@@ -31,10 +69,14 @@ export default function ProductCard({ title, image, price }: ProductCardProps) {
         <FavoriteBorderOutlinedIcon />
       </div>
 
-      <div className='cursor-pointer absolute bottom-20 left-0 right-0 flex justify-center items-center p-4 rounded-ee-2xl rounded-es-2xl opacity-0 group-hover:opacity-100 transition-opacity bg-slate-500 text-white'>
+      <button
+        type='button'
+        onClick={handleAddToCart}
+        className='cursor-pointer absolute bottom-20 left-0 right-0 flex justify-center items-center p-4 rounded-ee-2xl rounded-es-2xl opacity-0 group-hover:opacity-100 transition-opacity bg-slate-500 text-white'
+      >
         <p className='px-2'>Add to Cart</p>
         <ShoppingCartOutlinedIcon />
-      </div>
+      </button>
     </div>
   );
 }

@@ -18,7 +18,6 @@ export default function ProductList({ isLoading, products }: ProductListProps) {
 
     let filteredProducts = products;
 
-    console.log(`aois`, context?.categories);
     if (context?.categories.length) {
       filteredProducts = filteredProducts.filter((product) =>
         context.categories.includes(product.category)
@@ -30,7 +29,6 @@ export default function ProductList({ isLoading, products }: ProductListProps) {
           .toLowerCase()
           .includes(context.searchProduct.toLowerCase())
       );
-      w;
     }
 
     if (context?.pagination.currentPage) {
