@@ -20,15 +20,6 @@ export default function RootLayout({
         <QueryClientProvider client={queryClient}>
           <main className='flex min-h-screen flex-col items-center p-0'>
             <NotificationBar />
-            <Header />
-            <BreadCrumb
-              breadCrumbs={[
-                {
-                  label: 'Home',
-                  path: '/',
-                },
-              ]}
-            />
             {children}
           </main>
         </QueryClientProvider>
