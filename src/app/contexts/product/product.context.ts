@@ -3,7 +3,6 @@ export const ITEMS_PER_PAGE = 9;
 
 interface Pagination {
   currentPage: number;
-  totalPages: number;
 }
 
 interface ProductContextType {

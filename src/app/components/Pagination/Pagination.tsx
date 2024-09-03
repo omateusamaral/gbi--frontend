@@ -12,12 +12,29 @@ export default function Pagination({ isLoading, quantity }: any) {
       context.setCurrentPage(page);
     }
   }
+
+  function handleBeforeCurrentPage() {
+    if (!context || context.pagination.currentPage === 1) {
+      return;
+    }
+
+    context.setCurrentPage(context.pagination.currentPage - 1);
+  }
+
+  function handleNextCurrentPage() {
+    if (!context || context?.pagination.currentPage === pages.at(-1)) {
+      return;
+    }
+
+    context.setCurrentPage(context.pagination.currentPage + 1);
+  }
   return (
     <div className='flex justify-center my-6'>
       <nav className='inline-flex -space-x-px'>
         <button
           type='button'
           disabled={context?.pagination.currentPage === 1}
+          onClick={handleBeforeCurrentPage}
           className='relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
         >
           <ArrowBackIosOutlinedIcon fontSize='small' />
@@ -41,7 +58,7 @@ export default function Pagination({ isLoading, quantity }: any) {
 
         <button
           type='button'
-          onClick={() => handleToPage(context?.pagination.currentPage ?? 1)}
+          onClick={handleNextCurrentPage}
           disabled={context?.pagination.currentPage === pages.at(-1)}
           className='relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
         >

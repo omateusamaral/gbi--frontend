@@ -6,12 +6,7 @@ import { listCategories } from './api/category.api';
 import PleaseTryAgainLater from './components/PleaseTryAgainLater/PleaseTryAgainLater';
 import { countAllProducts, listProducts } from './api/product.api';
 import Pagination from './components/Pagination/Pagination';
-import {
-  ITEMS_PER_PAGE,
-  ProductContext,
-} from './contexts/product/product.context';
-import { useState } from 'react';
-import { useDebounceValue } from 'usehooks-ts';
+
 import Header from './components/Header/Header';
 import BreadCrumb from './components/BreadCrumb/BreadCrumb';
 import ProductContextProvider from './contexts/product/ProductContextProvider';
@@ -32,7 +27,7 @@ export default function Home() {
   });
 
   return (
-    <ProductContextProvider countProducts={countProductsQuery.data}>
+    <ProductContextProvider>
       <Header />
       <BreadCrumb
         breadCrumbs={[
