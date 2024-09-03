@@ -28,6 +28,10 @@ export default function Pagination({ isLoading, quantity }: any) {
 
     context.setCurrentPage(context.pagination.currentPage + 1);
   }
+
+  if (isLoading) {
+    return <></>;
+  }
   return (
     <div className='flex justify-center my-6'>
       <nav className='inline-flex -space-x-px'>

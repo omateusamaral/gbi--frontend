@@ -72,6 +72,7 @@ export default function ProductCard({
       <button
         type='button'
         onClick={handleAddToCart}
+        data-testid={`add-to-cart${id}`}
         className='cursor-pointer absolute bottom-20 left-0 right-0 flex justify-center items-center p-4 rounded-ee-2xl rounded-es-2xl opacity-0 group-hover:opacity-100 transition-opacity bg-slate-500 text-white'
       >
         <p className='px-2'>Add to Cart</p>

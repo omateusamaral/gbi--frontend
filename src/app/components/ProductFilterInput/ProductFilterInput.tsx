@@ -15,6 +15,7 @@ export default function ProductFilterInput() {
         type='text'
         placeholder='Procure um produto'
         className='ml-2 w-full m-0 p-0 outline-none'
+        data-testid='searchInput'
         onChange={handleSearch}
       />
     </div>
